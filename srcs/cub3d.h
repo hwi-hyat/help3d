@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:09 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 13:41:22 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/16 13:56:15 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,5 +199,6 @@ char			*get_line(char *stock);
 int				a_to_i(char *line, int *i);
 int				ws_pass(char *line, int *i);
 int				print_error(int code);
+int				valid_pos(t_info *f, int y, int x);
 
 #endif

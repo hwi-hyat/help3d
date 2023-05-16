@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 18:01:54 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/15 23:17:12 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/16 13:55:51 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,11 @@ int	print_error(int code)
 	else if (code == -9)
 		write(2, "error : Invalid texture image\n", 30);
 	return (-1);
+}
+
+int	valid_pos(t_info *f, int y, int x)
+{
+	if (y < 0 || x < 0 || y >= f->map.y || x >= f->map.x)
+		return (0);
+	return (1);
 }
