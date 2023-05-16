@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 18:01:54 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 13:55:51 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/16 21:52:45 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,14 @@ int	print_error(int code)
 
 int	valid_pos(t_info *f, int y, int x)
 {
-	if (y < 0 || x < 0 || y >= f->map.y || x >= f->map.x)
+	int	xlen;
+
+	if (y < 0 || y >= f->map.y)
+		return (0);
+	xlen = 0;
+	while (f->map.tab[y][xlen])
+		xlen++;
+	if (x < 0 || x >= xlen)
 		return (0);
 	return (1);
 }

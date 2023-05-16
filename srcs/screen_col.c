@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:37:22 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 13:24:40 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 00:00:39 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ unsigned int	ft_pixel(t_info *s, double i)
 	return (BLACK);
 }
 
-void			ft_column(t_info *s, int size)
+void	ft_column(t_info *s, int size)
 {
 	unsigned int	color;
 	int				start;
@@ -62,7 +62,7 @@ void			ft_column(t_info *s, int size)
 	s->ray.i -= s->win.x * s->win.y;
 }
 
-int	ft_size(t_info *s)
+int	distort_adj(t_info *s)
 {
 	double	correc;
 	double	fisheye;

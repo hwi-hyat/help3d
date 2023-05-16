@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:09 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 21:04:31 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 00:00:38 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,10 +179,10 @@ int				exterminate(t_info *s, int win);
 void			display(t_info *s);
 void			set_ray(t_info *s);
 void			set_ambig_ray_dir(t_info *s);
-void			ft_ver(t_info *s);
-void			ft_hor(t_info *s);
+void			vertical_hit(t_info *s);
+void			horizontal_hit(t_info *s);
 
-int				ft_size(t_info *s);
+int				distort_adj(t_info *s);
 void			ft_column(t_info *s, int start);
 unsigned int	ft_pixel(t_info *s, double i);
 

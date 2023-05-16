@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:32:10 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 19:55:04 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 00:00:38 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	set_ambig_ray_dir(t_info *s)
 		s->ray.w = 0;
 }
 
-void	ft_ver(t_info *s)
+void	vertical_hit(t_info *s)
 {
 	double	x;
 	double	y;
@@ -64,7 +64,7 @@ void	ft_ver(t_info *s)
 	s->hit.d = 1000000000;
 }
 
-void	ft_hor(t_info *s)
+void	horizontal_hit(t_info *s)
 {
 	double	y;
 	double	x;
@@ -103,10 +103,10 @@ void	display(t_info *s)
 	{
 		set_ray(s);
 		set_ambig_ray_dir(s);
-		ft_ver(s);
-		ft_hor(s);
+		vertical_hit(s);
+		horizontal_hit(s);
 		//ft_stock(s);
-		ft_column(s, ft_size(s));
+		ft_column(s, distort_adj(s));
 		s->ray.i++;
 	}
 	//ft_sprite(s);
