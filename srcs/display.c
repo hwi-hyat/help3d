@@ -6,27 +6,27 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:32:10 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 13:58:45 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/16 19:55:04 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_ray(t_info *s)
+void	set_ray(t_info *s)
 {
 	double	angle;
 	double	dist;
 
-	angle = ((double)s->ray.i - (s->win.x / 2)) * 33 / (s->win.x / 2);
-	angle = angle * M_PI / 180;
-	s->ray.x = s->dir.x * cos(angle) - s->dir.y * sin(angle);
-	s->ray.y = s->dir.y * cos(angle) + s->dir.x * sin(angle);
-	dist = hypot(s->ray.x, s->ray.y);
-	s->ray.x /= dist;
-	s->ray.y /= dist;
+	angle = ((double)s->ray.i - (s->win.x / 2)) * 45 / (s->win.x / 2);	//시야각에 맞추어 각도계산(90도)
+	angle = angle * M_PI / 180;											//radian으로 변환
+	s->ray.x = s->dir.x * cos(angle) - s->dir.y * sin(angle);			//x축 방향 벡터
+	s->ray.y = s->dir.y * cos(angle) + s->dir.x * sin(angle);			//y축 방향 벡터
+	dist = hypot(s->ray.x, s->ray.y);									//벡터의 크기
+	s->ray.x /= dist;													//단위벡터로 변환
+	s->ray.y /= dist;													//단위벡터로 변환
 }
 
-void	ft_dir(t_info *s)
+void	set_ambig_ray_dir(t_info *s)
 {
 	if (s->ray.x >= 0)
 		s->ray.v = 1;
@@ -101,8 +101,8 @@ void	display(t_info *s)
 	//s->stk = malloc(sizeof(t_stk) * s->win.x);
 	while (s->ray.i < s->win.x)
 	{
-		ft_ray(s);
-		ft_dir(s);
+		set_ray(s);
+		set_ambig_ray_dir(s);
 		ft_ver(s);
 		ft_hor(s);
 		//ft_stock(s);

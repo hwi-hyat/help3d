@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:16:06 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 12:11:02 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/16 21:07:34 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int	check_map(t_info *s)
 
 	i = 0;
 	j = 0;
-	while (i < s->map.y)
+	while (s->map.tab[i])
 	{
 		j = 0;
-		while (j < s->map.x)
+		while (s->map.tab[i][j])
 		{
 			if (s->map.tab[i][j] == '0')
 				if (check_surrounding(s, i, j) == 0)
@@ -76,7 +76,7 @@ int	check_map(t_info *s)
 int	check_elements(t_info *s)
 {
 	if (s->win.x <= 0 || s->win.y <= 0)
-		return (print_error(-14));
+		return (print_error(-14));//
 	else if (s->tex.n == NULL || s->tex.s == NULL
 		|| s->tex.e == NULL || s->tex.w == NULL)
 		return (print_error(-15));
