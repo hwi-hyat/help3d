@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:04 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 23:45:07 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:31:16 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ void	initiate(t_info *s)
 	s->pos.y = 0;
 	s->dir.x = 0;
 	s->dir.y = 0;
-	s->spr = NULL;
-	//s->stk = NULL;
 }
 
 int	main(int argc, char **argv)

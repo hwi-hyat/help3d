@@ -6,11 +6,32 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 23:01:17 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:25:58 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:44:24 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	str_len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	c_ws(char *line)
+{
+	int	i;
+
+	i = 0;
+	while ((line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+		|| (line[i] == '\r' || line[i] == '\v' || line[i] == '\f'))
+		(i)++;
+	return (i);
+}
 
 int	line_by_line(t_info *s, char *line)
 {
@@ -18,7 +39,9 @@ int	line_by_line(t_info *s, char *line)
 
 	i = 0;
 	ws_pass(line, &i);
-	if ((line[i] == '1' || s->err.m == 1) && line[i] != '\0')
+	if ((str_len(line) == 0 || str_len(line) == c_ws(line)) && s->err.m == 1)
+		return (print_error(-12));
+	else if ((line[i] == '1' || s->err.m == 1) && line[i] != '\0')
 		s->err.n = map(s, line, &i);
 	else if (line[i] == 'N' && line[i + 1] == 'O' && line[i + 2] == ' ')
 		s->err.n = parse_tex(s, &s->tex.n, line, &i);
