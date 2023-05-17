@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:49:26 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 12:53:03 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:38:50 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,25 +80,6 @@ int	get_next_line(int fd, char **line)
 	return (check_error_gnl(line, read_size, &stock));
 }
 
-void printer(t_map map)
-{
-	int i = 0, j = 0;
-	while(map.tab[i])
-	{
-		while(map.tab[i][j])
-		{
-			printf("%c", map.tab[i][j]);
-			j++;
-		}
-		if(map.tab[i][j] == '\0')
-			printf("end of line");
-		printf("\n");
-		j = 0;
-		i++;
-	}
-	printf("map.y %d map.x %d\n", map.y, map.x);
-}//
-
 int	parse(t_info *s, char *mapname)
 {
 	char	*line;
@@ -120,6 +101,5 @@ int	parse(t_info *s, char *mapname)
 	if (ret == -1 || ret == -3)
 		return (print_error(ret + 1));
 	set_pos(s);
-	printer(s->map);//
 	return (check_elements(s));
 }

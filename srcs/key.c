@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:50:12 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 12:50:12 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:42:00 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	exterminate(t_info *s, int win)
 	free(s->tex.w);
 	if (win == 1)
 		mlx_destroy_window(s->mlx.ptr, s->win.ptr);
-	free(s->mlx.ptr);
 	exit(0);
 	return (1);
 }

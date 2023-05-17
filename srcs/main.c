@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:50:16 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 12:52:46 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:38:23 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	display_init(t_info *s)
 
 	display(s);
 	mlx_put_image_to_window(s->mlx.ptr, s->win.ptr, s->img.ptr, 0, 0);
-	free(s->img.ptr);
-	free(s->img.adr);
 }
 
 int	game(t_info *s, char *mapname)

@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:49:32 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 12:49:33 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:41:40 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,7 @@
 # include <stdio.h>
 
 # define NONE 0xFF000000
-# define WHITE 0x00FFFFFF
 # define BLACK 0x00000000
-# define RED 0x00FF0000
-# define GREEN 0x0000FF00
-# define BLUE 0x000000FF
-# define MAGENTA 0x00FF00FF
-# define YELLOW 0x00FFFF00
-# define CYAN 0x0000FFFF
 # define WIDTH 640
 # define HEIGHT 480
 
