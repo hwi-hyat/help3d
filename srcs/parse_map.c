@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 21:41:46 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 23:16:51 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:02:17 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	parse_tex(t_info *s, unsigned int **adr, char *line, int *i)
 
 	if (*adr != NULL)
 		return (-7);
+	if (s->err.m == 1)
+		return (-13);
 	(*i) += 2;
 	ws_pass(line, i);
 	j = *i;

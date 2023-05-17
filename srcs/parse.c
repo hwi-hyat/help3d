@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 23:01:17 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 21:51:08 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:25:58 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	line_by_line(t_info *s, char *line)
 	else if (line[i] == 'E' && line[i + 1] == 'A' && line[i + 2] == ' ')
 		s->err.n = parse_tex(s, &s->tex.e, line, &i);
 	else if (line[i] == 'F' && line[i + 1] == ' ')
-		s->err.n = set_color(&s->tex.f, line, &i);
+		s->err.n = set_color(s, &s->tex.f, line, &i);
 	else if (line[i] == 'C' && line[i + 1] == ' ')
-		s->err.n = set_color(&s->tex.c, line, &i);
+		s->err.n = set_color(s, &s->tex.c, line, &i);
 	if (ws_pass(line, &i) && s->err.n == 0 && line[i] != '\0')
 		return (print_error(-10));
 	if (s->err.n < 0)
@@ -51,19 +51,23 @@ int	get_next_line(int fd, char **line)
 	read_size = 1;
 	while (!(newline_check(stock, read_size)))
 	{
-		if ((read_size = read(fd, buf, 4095)) == -1)
+		read_size = read(fd, buf, 4095);
+		if ((read_size) == -1)
 			return (-3);
 		buf[read_size] = '\0';
-		if ((stock = buf_join(stock, buf)) == NULL)
+		stock = buf_join(stock, buf);
+		if (!stock)
 			return (-3);
 	}
-	if ((*line = get_line(stock)) == NULL)
+	*line = get_line(stock);
+	if (!(line))
 		return (-3);
 	if (read_size == 0)
 		free(stock);
 	if (read_size == 0)
 		return (0);
-	if ((stock = stock_trim(stock)) == NULL)
+	stock = stock_trim(stock);
+	if (!stock)
 		return (-3);
 	return (1);
 }
@@ -108,7 +112,6 @@ int	parse(t_info *s, char *mapname)
 	if (ret == -1 || ret == -3)
 		return (print_error(ret + 1));
 	set_pos(s);
-	s->spr = NULL;
 	printer(s->map);//
 	return (check_elements(s));
 }

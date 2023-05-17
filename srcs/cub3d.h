@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:00:09 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 00:00:38 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:23:17 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,20 +118,6 @@ typedef struct s_hit
 	double			d;
 }				t_hit;
 
-typedef struct s_spr
-{
-	double			x;
-	double			y;
-	double			d;
-}				t_spr;
-
-// typedef struct s_stk
-// {
-// 	double			x;
-// 	double			y;
-// 	double			d;
-// }				t_stk;
-
 typedef struct s_info
 {
 	t_mlx			mlx;
@@ -144,8 +130,6 @@ typedef struct s_info
 	t_dir			dir;
 	t_ray			ray;
 	t_hit			hit;
-	t_spr			*spr;
-	//t_stk			*stk;
 }				t_info;
 
 void			initiate(t_info *f);
@@ -163,7 +147,7 @@ int				parse_tex(t_info *s, unsigned int **adr, char *line, int *i);
 int				import_xpm(t_info *s, unsigned int **adr, char *file);
 
 void			set_pos(t_info *s);
-int				set_color(unsigned int *color, char *line, int *i);
+int				set_color(t_info *s, unsigned int *color, char *line, int *i);
 
 int				check_ext(char *arg, char *ext);
 int				check_surrounding(t_info *s, int y, int x);
@@ -183,11 +167,8 @@ void			vertical_hit(t_info *s);
 void			horizontal_hit(t_info *s);
 
 int				distort_adj(t_info *s);
-void			ft_column(t_info *s, int start);
-unsigned int	ft_pixel(t_info *s, double i);
-
-void			ft_sdraw(t_info *s, int loc, double dist);
-unsigned int	ft_spixel(t_info *s, int index, unsigned int col);
+void			printing_column(t_info *s, int start);
+unsigned int	get_pixel(t_info *s, double i);
 
 char			*error(char *stock);
 int				newline_check(char *stock, int read_size);

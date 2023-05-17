@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:32:10 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 00:00:38 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 11:37:57 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	display(t_info *s)
 		vertical_hit(s);
 		horizontal_hit(s);
 		//ft_stock(s);
-		ft_column(s, distort_adj(s));
+		printing_column(s, distort_adj(s));
 		s->ray.i++;
 	}
 	//ft_sprite(s);

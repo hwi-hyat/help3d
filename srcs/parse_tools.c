@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 21:41:51 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 12:49:55 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:02:21 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ws_comma_pass(char *line, int *i)
 	return (1);
 }
 
-int	set_color(unsigned int *color, char *line, int *i)
+int	set_color(t_info *s, unsigned int *color, char *line, int *i)
 {
 	int	r;
 	int	g;
@@ -27,6 +27,8 @@ int	set_color(unsigned int *color, char *line, int *i)
 
 	if (*color != NONE)
 		return (-5);
+	if (s->err.m == 1)
+		return (-13);
 	(*i)++;
 	r = a_to_i(line, i);
 	ws_comma_pass(line, i);

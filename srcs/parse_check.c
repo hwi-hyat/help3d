@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:16:06 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 21:07:34 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:22:31 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_surrounding(t_info *s, int y, int x)
 		while (j <= 1)
 		{
 			tx = j + x;
-			if (ty < 0 || tx < 0 || ty >= s->map.y || tx >= s->map.x)
+			if (valid_pos(s, ty, tx) == 0)
 				return (0);
 			if (!(s->map.tab[ty][tx] == '1' || s->map.tab[ty][tx] == '0'))
 				return (0);

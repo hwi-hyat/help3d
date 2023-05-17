@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen_col.c                                       :+:      :+:    :+:   */
+/*   display_out.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:37:22 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 00:00:39 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 11:54:50 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-unsigned int	ft_pixel(t_info *s, double i)
+unsigned int	get_pixel(t_info *s, double i)
 {
 	int	index;
 
@@ -35,7 +35,7 @@ unsigned int	ft_pixel(t_info *s, double i)
 	return (BLACK);
 }
 
-void	ft_column(t_info *s, int size)
+void	printing_column(t_info *s, int size)
 {
 	unsigned int	color;
 	int				start;
@@ -51,7 +51,7 @@ void	ft_column(t_info *s, int size)
 	{
 		if (s->ray.i >= start && count < size)
 		{
-			color = ft_pixel(s, (double)count / size);
+			color = get_pixel(s, (double)count / size);
 			count++;
 		}
 		else if (count == size)
@@ -68,14 +68,7 @@ int	distort_adj(t_info *s)
 	double	fisheye;
 
 	fisheye = fabs((double)s->ray.i / (s->win.x / 2) - 1);
-	fisheye *= 28 * M_PI / 180;
+	fisheye *= 33 * M_PI / 180;
 	correc = (double)s->hit.d * cos(fisheye);
 	return (round(s->win.y / correc));
 }
-
-// void	ft_stock(t_info *s)
-// {
-// 	s->stk[s->ray.i].x = s->ray.x;
-// 	s->stk[s->ray.i].y = s->ray.y;
-// 	s->stk[s->ray.i].d = s->hit.d;
-// }

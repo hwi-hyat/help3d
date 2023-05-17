@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 18:01:54 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/16 21:52:45 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 11:48:45 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ void	print_error2(int code)
 	else if (code == -12)
 		write(2, "error : Invalid map\n", 20);
 	else if (code == -13)
-		write(2, "error : Map isn't a rectangle\n", 30);//
-	else if (code == -14)
-		write(2, "error : No resolution specified\n", 32);//
+		write(2, "error : Map info provided in wrong order\n", 41);
 	else if (code == -15)
 		write(2, "error : Missing texture\n", 24);
 	else if (code == -16)
@@ -63,13 +61,9 @@ int	print_error(int code)
 	if (code <= -10)
 		print_error2(code);
 	else if (code == -1)
-		write(2, "error : CANNOT OPEN FILE: FD\n", 32);
+		write(2, "error : CANNOT OPEN FILE: FD\n", 29);
 	else if (code == -2)
-		write(2, "error : ERROR OCCURED IN GNL\n", 34);
-	else if (code == -3)
-		write(2, "error : Resolution specified twice\n", 35);//
-	else if (code == -4)
-		write(2, "error : Invalid resolution\n", 27);//
+		write(2, "error : ERROR OCCURED IN GNL\n", 29);
 	else if (code == -5)
 		write(2, "error : Floor/ceiling specified twice\n", 38);
 	else if (code == -6)
