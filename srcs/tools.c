@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:50:39 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 12:50:39 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:53:40 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,23 @@ int	a_to_i(char *line, int *i)
 void	print_error2(int code)
 {
 	if (code == -10)
-		write(2, "error : Invalid line in file\n", 29);
+		write(2, "Error\n: Invalid line in file\n", 30);
 	else if (code == -11)
-		write(2, "error : Memory allocation failed (map table)\n", 32);
+		write(2, "Error\n: Memory allocation failed (map table)\n", 46);
 	else if (code == -12)
-		write(2, "error : Invalid map\n", 20);
+		write(2, "Error\n: Invalid map\n", 21);
 	else if (code == -13)
-		write(2, "error : Map info provided in wrong order\n", 41);
+		write(2, "Error\n: Map info provided in wrong order\n", 42);
 	else if (code == -15)
-		write(2, "error : Missing texture\n", 24);
+		write(2, "Error\n: Missing texture\n", 25);
 	else if (code == -16)
-		write(2, "error : Missing floor/ceiling color\n", 26);
+		write(2, "Error\n: Missing floor/ceiling color\n", 37);
 	else if (code == -17)
-		write(2, "error : No starting position\n", 29);
+		write(2, "Error\n: No starting position\n", 30);
 	else if (code == -18)
-		write(2, "error : Multiple starting positions\n", 36);
+		write(2, "Error\n: Multiple starting positions\n", 37);
 	else if (code == -19)
-		write(2, "error : Map isn't surrounded by walls\n", 38);
+		write(2, "Error\n: Map isn't surrounded by walls\n", 39);
 }
 
 int	print_error(int code)
@@ -61,19 +61,19 @@ int	print_error(int code)
 	if (code <= -10)
 		print_error2(code);
 	else if (code == -1)
-		write(2, "error : CANNOT OPEN FILE: FD\n", 29);
+		write(2, "Error\n: CANNOT OPEN FILE: FD\n", 29);
 	else if (code == -2)
-		write(2, "error : ERROR OCCURED IN GNL\n", 29);
+		write(2, "Error\n: Error\nOCCURED IN GNL\n", 30);
 	else if (code == -5)
-		write(2, "error : Floor/ceiling specified twice\n", 38);
+		write(2, "Error\n: Floor/ceiling specified twice\n", 39);
 	else if (code == -6)
-		write(2, "error : Invalid floor/ceiling line\n", 35);
+		write(2, "Error\n: Invalid floor/ceiling line\n", 36);
 	else if (code == -7)
-		write(2, "error : Texture path specified twice\n", 37);
+		write(2, "Error\n: Texture path specified twice\n", 38);
 	else if (code == -8)
-		write(2, "error : Memory allocation failed (texture path)\n", 35);
+		write(2, "Error\n: Memory allocation failed (texture path)\n", 48);
 	else if (code == -9)
-		write(2, "error : Invalid texture image\n", 30);
+		write(2, "Error\n: Invalid texture image\n", 31);
 	return (-1);
 }
 
