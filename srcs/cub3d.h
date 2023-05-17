@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 15:00:09 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:23:17 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:49:32 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:49:33 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,8 @@ int				a_to_i(char *line, int *i);
 int				ws_pass(char *line, int *i);
 int				print_error(int code);
 int				valid_pos(t_info *f, int y, int x);
+
+int				str_len(char *str);
+int				c_ws(char *line);
 
 #endif

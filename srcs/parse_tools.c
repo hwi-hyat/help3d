@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 21:41:51 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:02:21 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:50:32 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:57:53 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,30 @@ int	set_color(t_info *s, unsigned int *color, char *line, int *i)
 	return (0);
 }
 
+void	set_dir(t_info *s, char c)
+{
+	if (c == 'N')
+	{
+		s->dir.x = 0;
+		s->dir.y = -1;
+	}
+	else if (c == 'E')
+	{
+		s->dir.x = 1;
+		s->dir.y = 0;
+	}
+	else if (c == 'S')
+	{
+		s->dir.x = 0;
+		s->dir.y = 1;
+	}
+	else if (c == 'W')
+	{
+		s->dir.x = -1;
+		s->dir.y = 0;
+	}
+}
+
 void	set_pos(t_info *s)
 {
 	char	c;
@@ -59,10 +83,7 @@ void	set_pos(t_info *s)
 			{
 				s->pos.y = (double)i + 0.5;
 				s->pos.x = (double)j + 0.5;
-				s->dir.x = (c == 'E' || c == 'W') ? 1 : 0;
-				s->dir.x *= (c == 'W') ? -1 : 1;
-				s->dir.y = (c == 'S' || c == 'N') ? 1 : 0;
-				s->dir.y *= (c == 'N') ? -1 : 1;
+				set_dir(s, c);
 				s->err.p++;
 				s->map.tab[i][j] = '0';
 			}

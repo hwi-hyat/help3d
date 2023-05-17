@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 19:32:10 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 11:37:57 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:50:01 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:52:33 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	set_ray(t_info *s)
 	double	angle;
 	double	dist;
 
-	angle = ((double)s->ray.i - (s->win.x / 2)) * 45 / (s->win.x / 2);	//시야각에 맞추어 각도계산(90도)
-	angle = angle * M_PI / 180;											//radian으로 변환
-	s->ray.x = s->dir.x * cos(angle) - s->dir.y * sin(angle);			//x축 방향 벡터
-	s->ray.y = s->dir.y * cos(angle) + s->dir.x * sin(angle);			//y축 방향 벡터
-	dist = hypot(s->ray.x, s->ray.y);									//벡터의 크기
-	s->ray.x /= dist;													//단위벡터로 변환
-	s->ray.y /= dist;													//단위벡터로 변환
+	angle = ((double)s->ray.i - (s->win.x / 2)) * 45 / (s->win.x / 2);
+	angle = angle * M_PI / 180;
+	s->ray.x = s->dir.x * cos(angle) - s->dir.y * sin(angle);
+	s->ray.y = s->dir.y * cos(angle) + s->dir.x * sin(angle);
+	dist = hypot(s->ray.x, s->ray.y);
+	s->ray.x /= dist;
+	s->ray.y /= dist;
 }
 
 void	set_ambig_ray_dir(t_info *s)
@@ -98,16 +98,13 @@ void	display(t_info *s)
 
 	s->img.ptr = mlx_new_image(s->mlx.ptr, s->win.x, s->win.y);
 	s->img.adr = (unsigned int *)mlx_get_data_addr(s->img.ptr, &bpp, &sl, &end);
-	//s->stk = malloc(sizeof(t_stk) * s->win.x);
 	while (s->ray.i < s->win.x)
 	{
 		set_ray(s);
 		set_ambig_ray_dir(s);
 		vertical_hit(s);
 		horizontal_hit(s);
-		//ft_stock(s);
 		printing_column(s, distort_adj(s));
 		s->ray.i++;
 	}
-	//ft_sprite(s);
 }

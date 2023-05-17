@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/04 15:00:04 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:31:16 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:50:16 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:52:46 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ int	game(t_info *s, char *mapname)
 	s->mlx.ptr = mlx_init();
 	if (parse(s, mapname) == -1)
 		return (exterminate(s, 0));
-	// rotate(s, 1);
-	// move(s, 1);
-	// rotate(s, -1);
-	// move(s, -1);
 	s->win.ptr = mlx_new_window(s->mlx.ptr, s->win.x, s->win.y, "cub3D");
 	display_init(s);
 	mlx_hook(s->win.ptr, 2, 0, ft_key, s);

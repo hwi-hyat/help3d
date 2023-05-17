@@ -6,7 +6,7 @@
 #    By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 19:43:51 by siykim            #+#    #+#              #
-#    Updated: 2023/05/17 11:54:34 by siykim           ###   ########.fr        #
+#    Updated: 2023/05/17 12:49:48 by siykim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS	=	srcs/main.c \
 			srcs/display.c \
 			srcs/display_out.c \
 			srcs/tools.c \
+			srcs/tools2.c 
 
 OBJS	=	$(SRCS:.c=.o)
 

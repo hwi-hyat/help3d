@@ -5,33 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 23:01:17 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:44:24 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:49:26 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:53:03 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	c_ws(char *line)
-{
-	int	i;
-
-	i = 0;
-	while ((line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
-		|| (line[i] == '\r' || line[i] == '\v' || line[i] == '\f'))
-		(i)++;
-	return (i);
-}
 
 int	line_by_line(t_info *s, char *line)
 {
@@ -62,6 +42,20 @@ int	line_by_line(t_info *s, char *line)
 	return (0);
 }
 
+int	check_error_gnl(char **line, int read_size, char **stock)
+{
+	if (!(line))
+		return (-3);
+	if (read_size == 0)
+		free(*stock);
+	if (read_size == 0)
+		return (0);
+	*stock = stock_trim(*stock);
+	if (!stock)
+		return (-3);
+	return (1);
+}
+
 int	get_next_line(int fd, char **line)
 {
 	int			read_size;
@@ -83,16 +77,7 @@ int	get_next_line(int fd, char **line)
 			return (-3);
 	}
 	*line = get_line(stock);
-	if (!(line))
-		return (-3);
-	if (read_size == 0)
-		free(stock);
-	if (read_size == 0)
-		return (0);
-	stock = stock_trim(stock);
-	if (!stock)
-		return (-3);
-	return (1);
+	return (check_error_gnl(line, read_size, &stock));
 }
 
 void printer(t_map map)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/02 17:16:06 by cclaude           #+#    #+#             */
-/*   Updated: 2023/05/17 12:22:31 by siykim           ###   ########.fr       */
+/*   Created: 2023/05/17 12:50:24 by siykim            #+#    #+#             */
+/*   Updated: 2023/05/17 12:53:40 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ int	check_map(t_info *s)
 
 int	check_elements(t_info *s)
 {
-	if (s->win.x <= 0 || s->win.y <= 0)
-		return (print_error(-14));//
-	else if (s->tex.n == NULL || s->tex.s == NULL
+	if (s->tex.n == NULL || s->tex.s == NULL
 		|| s->tex.e == NULL || s->tex.w == NULL)
 		return (print_error(-15));
 	else if (s->tex.c == NONE || s->tex.f == NONE)
