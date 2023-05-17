@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:50:16 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 14:50:40 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 15:22:58 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ int	main(int argc, char **argv)
 		initiate(&s);
 	}
 	else
+	{
 		write(2, "Error : Invalid arguments\n", 26);
+		return (1);
+	}
 	game(&s, argv[1]);
-	return (0);
 }
