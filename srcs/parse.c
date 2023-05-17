@@ -6,12 +6,11 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:49:26 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 14:38:50 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:50:54 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 int	line_by_line(t_info *s, char *line)
 {

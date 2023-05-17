@@ -6,7 +6,7 @@
 /*   By: siykim <siykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:50:16 by siykim            #+#    #+#             */
-/*   Updated: 2023/05/17 14:38:23 by siykim           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:50:40 by siykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	display_init(t_info *s)
 	s->hit.x = 0;
 	s->hit.y = 0;
 	s->hit.d = 0;
-
 	display(s);
 	mlx_put_image_to_window(s->mlx.ptr, s->win.ptr, s->img.ptr, 0, 0);
 }
